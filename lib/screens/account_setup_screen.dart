@@ -21,27 +21,27 @@ class _AccountSetupScreenState extends State<AccountSetupScreen> {
       body: Stepper(
         type: StepperType.vertical,
         currentStep: currentStep,
-        // controlsBuilder: (context, details) {
-        //   return Row(
-        //     children: [
-        //       if (details.stepIndex < 3)
-        //         ElevatedButton(
-        //           onPressed: details.onStepContinue,
-        //           style: ElevatedButton.styleFrom(
-        //             backgroundColor: Colors.blue,
-        //             foregroundColor: Colors.white,
-        //           ),
-        //           child: const Text('Next'),
-        //         ),
-        //       const SizedBox(width: 8),
-        //       if (details.stepIndex > 0)
-        //         TextButton(
-        //           onPressed: details.onStepCancel,
-        //           child: const Text('Back'),
-        //         ),
-        //     ],
-        //   );
-        // },
+        controlsBuilder: (context, details) {
+          return Row(
+            children: [
+              if (details.stepIndex < 3)
+                ElevatedButton(
+                  onPressed: details.onStepContinue,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                    foregroundColor: Colors.white,
+                  ),
+                  child: const Text('Next'),
+                ),
+              const SizedBox(width: 8),
+              if (details.stepIndex > 0)
+                TextButton(
+                  onPressed: details.onStepCancel,
+                  child: const Text('Back'),
+                ),
+            ],
+          );
+        },
         onStepTapped: (step) {
           setState(() {
             currentStep = step;
